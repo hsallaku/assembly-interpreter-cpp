@@ -1,5 +1,0 @@
-LD 0
-ADD 1
-MUL 2
-SUB 3
-ST 0
