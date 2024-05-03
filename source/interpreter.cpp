@@ -90,7 +90,7 @@ public:
             std::string opcode = line.substr(0, spacePos);
             int x = std::stoi(line.substr(spacePos + 1));
             execute(opcode, x);
-            std::cout << "\tExecuted " << opcode << " " << x << ", Accumulator: " << accumulator << std::endl;
+            std::cout << "\tExecuted " << opcode << " " << memory[x] << ", Accumulator: " << accumulator << std::endl;
         }
 
         file.close();
