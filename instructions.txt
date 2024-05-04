@@ -3,3 +3,8 @@ ADD 1
 MUL 2
 SUB 3
 ST 0
+AND 1
+OR 2
+NOT
+LD 1
+DIV 3

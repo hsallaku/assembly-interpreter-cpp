@@ -88,9 +88,16 @@ public:
             if (line.empty() || line[0] == '#') continue;  // Skip empty lines and comments
             std::size_t spacePos = line.find(' ');
             std::string opcode = line.substr(0, spacePos);
-            int x = std::stoi(line.substr(spacePos + 1));
-            execute(opcode, x);
-            std::cout << "\tExecuted " << opcode << " " << memory[x] << ", Accumulator: " << accumulator << std::endl;
+
+            // if-else for NOT vs. all other opcodes. Needed because NOT does not require an operand within
+            if (opcode == "NOT") {
+                execute(opcode, 0);
+                std::cout << "\tExecuted " << opcode << ", Accumulator: " << accumulator << std::endl;
+            } else {
+                int x = std::stoi(line.substr(spacePos + 1));
+                execute(opcode, x);
+                std::cout << "\tExecuted " << opcode << " " << memory[x] << ", Accumulator: " << accumulator << std::endl;
+            }
         }
 
         file.close();
